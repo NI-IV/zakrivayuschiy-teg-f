@@ -31,6 +31,7 @@
   flex-direction: column;
   align-items: center;
   margin: 99px var(--margin-side);
+  overflow-x: hidden;
 }
 
 .header {
