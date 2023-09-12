@@ -399,7 +399,7 @@
   background: #000;
 }
 
-@media (width < 376px) {
+@media (max-width: 375px) {
 
   .page {
     --margin-side: 0;
