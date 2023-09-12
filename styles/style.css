@@ -15,7 +15,7 @@
 */
 
 .page {
-  min-inline-size: 375px;
+  min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--main-font);
   font-variation-settings: 'wght' var(--main-font-weight-text);
@@ -403,6 +403,10 @@
 
   .page {
     --margin-side: 0;
+  }
+
+  .header__logo {
+    font-size: clamp(2.6875rem, 0.5057rem + 10.9091vw, 3.0625rem);
   }
 
   .content__cards-list {
