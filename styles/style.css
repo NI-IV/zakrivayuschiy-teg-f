@@ -61,7 +61,7 @@
   flex-direction: column;
   gap: 12px;
   align-items: flex-start;
-  margin-inline-start: 41.5%;
+  margin-inline-start: clamp(8.375rem, 7.1646rem + 5.1643vw, 11.8125rem);
 }
 
 .button {
@@ -117,14 +117,14 @@
 .content {
   display: flex;
   flex-direction: column;
-  gap: clamp(3.125rem, 3.037rem + 0.3756vw, 3.375rem);
+  gap: 51px;
   align-items: center;
 }
 
 .content__cards-list {
   display: flex;
   flex-direction: column;
-  gap: 54px;
+  gap: 49px;
   list-style: none;
 }
 
@@ -138,14 +138,43 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  border-block-start: 2px solid var(--accent-color);
+  border-block-end: 2px solid var(--accent-color);
 }
 
 .content__image {
-  inline-size: calc(100% + 4px);
+  inline-size: 100%;
   object-fit: cover;
   object-position: center;
-  border-block-start: 1px solid var(--accent-color);
-  border-block-end: 1px solid var(--accent-color);
+}
+
+.content__image_sepia {
+  filter: sepia(0.6);
+}
+
+.content__image_saturate {
+  filter: saturate(500%);
+}
+
+.content__image_contrast_sepia {
+  filter: contrast(1.5) sepia(0.5);
+}
+
+.content__image_invert {
+  filter: invert(0.9);
+}
+
+.content__image_more-sepia {
+  filter: sepia(0.9);
+}
+
+.content__image_blur {
+  filter: blur(1rem);
+}
+
+.content__image_hue-rotate {
+  filter: hue-rotate(90deg);
 }
 
 .content__image-text {
@@ -183,8 +212,8 @@
 }
 
 .content__text {
-  padding: 20px 26px 26px;
-  line-height: 120%;
+  padding: 24px 25px clamp(1.5rem, 1.456rem + 0.1878vw, 1.625rem);
+  line-height: 1.197;
 }
 
 .content__text:last-of-type {
@@ -196,7 +225,7 @@
   justify-content: end;
   align-items: center;
   gap: 5px;
-  padding: 0 24px 25px;
+  padding: 0 24px 24px;
 }
 
 .card__like-button {
@@ -234,7 +263,7 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  inline-size: 335px;
+  inline-size: clamp(19.4375rem, 18.9093rem + 2.2535vw, 20.9375rem);
   block-size: 51px;
   border: 2px solid var(--accent-color);
   background-color: var(--bg-color);
@@ -370,9 +399,23 @@
   background: #000;
 }
 
-@media (width <= 375px) {
+@media (width < 376px) {
 
   .page {
     --margin-side: 0;
+  }
+
+  .content__cards-list {
+    gap: 50px;
+  }
+
+  .content__save-button {
+    flex-direction: column;
+    block-size: 83px;
+    gap: 11px;
+  }
+
+  .button-floppy {
+    scale: 1.4;
   }
 }
