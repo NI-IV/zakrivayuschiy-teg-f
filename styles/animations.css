@@ -31,7 +31,7 @@
   }
 
   100% {
-    scale: 1.5;
+    scale: 1.15;
   }
 }
 
@@ -44,4 +44,8 @@
   to {
     opacity: 1;
   }
+}
+
+.button_decoration:focus-visible {
+    box-shadow: 2px 2px 0 var(--accent-color);
 }

@@ -32,7 +32,7 @@
   display: grid;
   place-content: center;
   gap: 21px;
-  font-family: var(--accent-font), sans-serif;
+  font-family: var(--accent-font), fantasy;
   background-color: var(--bg-color);
   inline-size: 100%;
   margin-block-end: 99px;
@@ -98,7 +98,7 @@
 .theme-menu__button:disabled:before {
   content: '▶';
   position: absolute;
-  animation: arrow 0.5s ease-in-out infinite;
+  animation: arrow 0.5s ease-in-out infinite alternate;
 }
 
 .theme-menu__button:disabled {
@@ -106,12 +106,14 @@
   pointer-events: none;
 }
 
-.theme-menu__button:hover {
+.theme-menu__button:hover,
+.theme-menu__button:focus-visible {
   opacity: 0.6;
 }
 
 .theme-menu__button:focus-visible::after {
   inline-size: 90%;
+  opacity: 0.6;
 }
 
 .content {
@@ -124,7 +126,7 @@
 .content__cards-list {
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 50px;
   list-style: none;
 }
 
@@ -178,9 +180,9 @@
 
 .content__image-text {
   position: absolute;
-  inset-inline-end: 25px;
-  inset-block-start: 27px;
-  font-family: var(--accent-font), sans-serif;
+  inset-inline-end: clamp(0.6875rem, 0.3794rem + 1.3146vw, 1.5625rem);
+  inset-block-start: clamp(1.4375rem, 1.3495rem + 0.3756vw, 1.6875rem);
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
   font-weight: 400;
   color: var(--accent-color);
@@ -206,13 +208,13 @@
   font-size: 18px;
   font-style: normal;
   font-weight: var(--main-font-weight-title);
+  font-variation-settings: 'wght' var(--main-font-weight-title);
   line-height: normal;
-  letter-spacing: 0.016em;
 }
 
 .content__text {
   padding: 24px 25px clamp(1.5rem, 1.456rem + 0.1878vw, 1.625rem);
-  line-height: 1.197;
+  line-height: 1.19;
 }
 
 .content__text:last-of-type {
@@ -258,14 +260,20 @@
 }
 
 .content__save-button {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: min-content 1fr;
   align-items: center;
-  gap: 8px;
+  gap: 1px;
   inline-size: clamp(19.4375rem, 18.9093rem + 2.2535vw, 20.9375rem);
   block-size: 51px;
   border: 2px solid var(--accent-color);
   background-color: var(--bg-color);
+  padding-inline-start: 17px;
+}
+
+.content__save-button .button-floppy {
+  inline-size: 21px;
+  block-size: 21px;
 }
 
 .button_decoration {
@@ -290,9 +298,9 @@
   inline-size: 100%;
 }
 
-.button_decoration:focus-visible {
-  box-shadow: 2px 2px 0 var(--accent-color);
-}
+
+
+
 
 .sparks {
   opacity: 0;
@@ -336,7 +344,7 @@
 
 .like-icon.is-liked .heart {
   transform-origin: center;
-  animation: heart-scale 0.3s 0.1s ease-in;
+  animation: heart-scale 0.3s 0.1s ease-in alternate;
 }
 
 .like-icon.is-liked .core {
@@ -355,7 +363,7 @@
 }
 
 .like-icon.is-liked .sparks {
-  animation: sparks 0.3s 0.3s ease-in;
+  animation: sparks 0.3s 0.3s ease-in alternate;
 }
 
 .dialog {
@@ -392,6 +400,7 @@
 
 .dialog__button {
   border: 2px solid var(--accent-color);
+  inline-size: 100%;
   block-size: 38px;
   text-transform: uppercase;
 }
@@ -412,13 +421,21 @@
   }
 
   .content__cards-list {
-    gap: 49px;
+    gap: 51.5px;
+  }
+
+  .content {
+    gap: 52px;
   }
 
   .content__save-button {
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     block-size: 83px;
     gap: 11px;
+    padding: 0;
   }
 
   .button-floppy {
