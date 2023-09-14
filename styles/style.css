@@ -98,6 +98,8 @@
 .theme-menu__button:disabled:before {
   content: '▶';
   position: absolute;
+  top: 1px;
+  left: -15px;
   animation: arrow 0.5s ease-in-out infinite alternate;
 }
 
@@ -298,68 +300,14 @@
   inline-size: 100%;
 }
 
-.sparks {
-  opacity: 0;
-}
-
-.core {
-  transition: 0.3s;
-}
-
-.contour {
-  transition: 0.3s 0.06s;
-}
-
-.main-body {
-  transition: 0.3s 0.05s;
+.button_decoration:focus-visible {
+  box-shadow: 2px 2px 0 var(--accent-color);
 }
 
 .like-icon {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.like-icon:hover .core {
-  transition-delay: 0.03s;
-  --heart-core-color: var(--accent-color);
-}
-
-.like-icon:hover .main-body {
-  --heart-main-body-color: var(--accent-color);
-}
-
-.like-icon:active .core {
-  transition-delay: 0.03s;
-  --heart-core-color: #f00;
-}
-
-.like-icon:active .main-body {
-  --heart-main-body-color: #f00;
-}
-
-.like-icon.is-liked .heart {
-  transform-origin: center;
-  animation: heart-scale 0.3s 0.1s ease-in alternate;
-}
-
-.like-icon.is-liked .core {
-  transition: 0.3s;
-  --heart-core-color: #f00;
-}
-
-.like-icon.is-liked .main-body {
-  transition: 0.3s 0.05s;
-  --heart-main-body-color: #f00;
-}
-
-.like-icon.is-liked .contour {
-  transition: fill 0.1s;
-  --heart-contour-color: #f00;
-}
-
-.like-icon.is-liked .sparks {
-  animation: sparks 0.3s 0.3s ease-in alternate;
 }
 
 .dialog {
